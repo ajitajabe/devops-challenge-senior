@@ -39,19 +39,19 @@ module "ecs_service" {
   subnet_ids = module.vpc.private_subnets
   security_group_ids = [aws_security_group.allow_http.id]
   assign_public_ip = false
-  load_balancer = {
+  load_balancer = [{
     container_name   = "simpletimeservice"
     container_port   = 5000
     target_group_arn = aws_lb_target_group.main.arn
-  }
+  }]
 }
 
-resource "aws_lb" "main" [{
+resource "aws_lb" "main" {
   name               = "particle41-alb"
   internal           = false
   load_balancer_type = "application"
   subnets            = module.vpc.public_subnets
-}]
+}
 
 resource "aws_lb_target_group" "main" {
   name     = "particle41-tg"
