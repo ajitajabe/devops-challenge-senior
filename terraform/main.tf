@@ -31,6 +31,7 @@ module "ecs_service" {
       essential = true
       portMappings = [{
         containerPort = 5000
+        hostPort      = 5000
         protocol      = "tcp"
       }]
     }
