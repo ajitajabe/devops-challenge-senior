@@ -12,13 +12,13 @@ module "vpc" {
 
 module "ecs_cluster" {
   source  = "terraform-aws-modules/ecs/aws"
-  name    = "particle41-ecs"
   cluster_name = "particle41-cluster"
 }
 
 module "ecs_service" {
   source = "terraform-aws-modules/ecs/aws//modules/service"
   cluster_name = module.ecs_cluster.cluster_name
+  name   = "simple-time-service"
   launch_type  = "FARGATE"
   desired_count = 1
 
