@@ -46,12 +46,12 @@ module "ecs_service" {
   }
 }
 
-resource "aws_lb" "main" {
+resource "aws_lb" "main" [{
   name               = "particle41-alb"
   internal           = false
   load_balancer_type = "application"
   subnets            = module.vpc.public_subnets
-}
+}]
 
 resource "aws_lb_target_group" "main" {
   name     = "particle41-tg"
