@@ -107,3 +107,15 @@ docker_image   = "ajit131997/simpletimeservice:latest"
 
 🔒 Security Note
 Never commit your AWS credentials, secrets, or .tfstate files to public repos.
+
+
+🔐 GitHub Repository Secrets Required
+Go to your repository → Settings → Secrets and Variables → Actions → New repository secret
+
+Add these:
+
+Secret Name	                           Value
+DOCKER_USERNAME	              Your DockerHub username
+DOCKER_PASSWORD	              Your DockerHub password or token
+AWS_ACCESS_KEY_ID	          AWS Access Key ID
+AWS_SECRET_ACCESS_KEY	      AWS Secret Access Key
