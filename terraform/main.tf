@@ -22,7 +22,7 @@ module "ecs_service" {
   launch_type  = "FARGATE"
   desired_count = 1
 
-  container_definitions = jsonencode[
+  container_definitions = [
     {
       name      = "simpletimeservice"
       image     = var.image_url
