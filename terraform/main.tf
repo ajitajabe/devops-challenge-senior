@@ -40,6 +40,8 @@ module "ecs_service" {
   security_group_ids = [aws_security_group.allow_http.id]
   assign_public_ip = false
   load_balancer = {
+    container_name   = "simpletimeservice"
+    container_port   = 5000
     target_group_arn = aws_lb_target_group.main.arn
   }
 }
