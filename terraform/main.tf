@@ -17,7 +17,7 @@ module "ecs_cluster" {
 
 module "ecs_service" {
   source = "terraform-aws-modules/ecs/aws//modules/service"
-  cluster = module.ecs_cluster.id
+  cluster = module.ecs_cluster.arn
   name   = "simple-time-service"
   launch_type  = "FARGATE"
   desired_count = 1
@@ -39,7 +39,7 @@ module "ecs_service" {
   subnet_ids = module.vpc.private_subnets
   security_group_ids = [aws_security_group.allow_http.id]
   assign_public_ip = false
-  alb = {
+  load_balancer = {
     target_group_arn = aws_lb_target_group.main.arn
   }
 }
