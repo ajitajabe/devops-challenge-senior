@@ -22,7 +22,7 @@ module "ecs_service" {
   launch_type  = "FARGATE"
   desired_count = 1
 
-  container_definitions = jsonencode([
+  container_definitions = jsonencode[
     {
       name      = "simpletimeservice"
       image     = var.image_url
@@ -34,7 +34,7 @@ module "ecs_service" {
         protocol      = "tcp"
       }]
     }
-  ])
+  ]
 
   subnet_ids = module.vpc.private_subnets
   security_group_ids = [aws_security_group.allow_http.id]
