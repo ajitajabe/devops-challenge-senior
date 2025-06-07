@@ -19,7 +19,6 @@ module "ecs_cluster" {
 module "ecs_service" {
   source = "terraform-aws-modules/ecs/aws//modules/service"
   cluster_name = module.ecs_cluster.cluster_name
-  name   = "simple-time-service"
   launch_type  = "FARGATE"
   desired_count = 1
 
